@@ -38,3 +38,27 @@ rltk = { version = "0.8.7" }
 ---
 It's a good idea to occasionally run `cargo update` - this will update the libraries used by your program.
 
+#### Hello World in RLTK:
+```
+# src/main.rs
+use rltk::{GameState, Rltk};
+
+struct State {}
+impl GameState for State {
+    fn tick(&mut self, ctx: &mut Rltk) {
+        ctx.cls();
+        ctx.print(1, 1, "Hello Rust");
+    }
+}
+
+fn main() -> rltk::BError {
+    use rltk::RltkBuilder;
+    let context = RltkBuilder::simple80x50()
+        .with_title("RougeLike Tutorial")
+        .build()?;
+    let gs = State {};
+    rltk::main_loop(context, gs)
+}
+```
+^Error 1
+[[Errors Faced]] ^bee485
