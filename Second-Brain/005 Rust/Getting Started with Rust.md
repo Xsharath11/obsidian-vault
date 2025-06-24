@@ -73,4 +73,5 @@ fn main() -> rltk::BError {
 	1. `&mut self` - "This function requires access to the parent structure (State) and may change it" `mut` = mutable
 	2. We can also have functions inside a structure that have just `&self` meaning they have access  to the contents of the struct but cannot change it
 	3. `ctx: &mut Rltk` - ctx = context. The colon specifies the type of variable it must be
-	4. `&` - pass as reference. Which is a pointer to an existing copy of the variable. The variable isn't copied, 
+	4. `&` - pass as reference. Which is a pointer to an existing copy of the variable. The variable isn't copied, you are working on the version that was passed in. Any changes made are made on the original
+	5. `Rltk` is the type of variable you are receiving. It is a struct defined inside the RLTK library that provides various things you can do to the screen
