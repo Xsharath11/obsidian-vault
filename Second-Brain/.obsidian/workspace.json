@@ -1,0 +1,247 @@
+{
+  "main": {
+    "id": "893f2249c75cadef",
+    "type": "split",
+    "children": [
+      {
+        "id": "d8cee7c27e93dcde",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1eb2f6ccc748f605",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "217c9a17e23b6a20",
+    "type": "split",
+    "children": [
+      {
+        "id": "9198ff79666c319f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eacf140bf3b3ad04",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "14d823126e58b8d7",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "94116c80b7cbe077",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "63512625a3e82e76",
+    "type": "split",
+    "children": [
+      {
+        "id": "ffcddb55c6784cb8",
+        "type": "tabs",
+        "dimension": 35.27777777777778,
+        "children": [
+          {
+            "id": "0e015968713d8911",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "e77ee63b408991a0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "30a7b494220cabb8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "dbf8caedcd0915f6",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "d456342c4af624c2",
+        "type": "tabs",
+        "dimension": 35.27777777777778,
+        "children": [
+          {
+            "id": "cbbaa369cb9c1616",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ecbd529b929add13",
+        "type": "tabs",
+        "dimension": 29.444444444444446,
+        "children": [
+          {
+            "id": "b58f887d55e0094d",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "graph:Open graph view": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "cbbaa369cb9c1616",
+  "lastOpenFiles": [
+    "004 Habit Tracker/Django Rest API.md",
+    "004 Habit Tracker/Create a login page first.md",
+    "005 Rust/Getting Started with Rust.md",
+    "005 Rust",
+    "004 Habit Tracker/Rough Notes.md",
+    "004 Habit Tracker/Steps.md",
+    "004 Habit Tracker/Basic Django backend.md",
+    "004 Habit Tracker/Additional Streamlit notes.md",
+    "004 Habit Tracker/Streamlit UI.md",
+    "Images/Pasted image 20250623172243.png",
+    "004 Habit Tracker/Scope.md",
+    "000 Quick Notes/Commands.md",
+    "004 Habit Tracker/Serializers.md",
+    "002 Spring/Setting up a REST API.md",
+    "002 Spring/Index.md",
+    "Images/Pasted image 20250609172756.png",
+    "004 Habit Tracker",
+    "003 Blog Ideas/Some Random Blog Ideas.md",
+    "003 Blog Ideas",
+    "Images/Pasted image 20250609172038.png",
+    "002 Spring/Getting Started With Spring.md",
+    "Images/Pasted image 20250608171504.png",
+    "Images",
+    "Images/Pasted image 20250608174753.png",
+    "Images/Pasted image 20250609135614.png",
+    "Images/Pasted image 20250609140132.png",
+    "Images/Pasted image 20250609141047.png",
+    "002 Spring/Pasted image 20250609140943.png",
+    "Pasted image 20250609140756.png",
+    "001 Java Notes/Arrays.md",
+    "001 Java Notes/Java Notes.md",
+    "000 Quick Notes/Untitled",
+    "000 Quick Notes",
+    "Untitled.md",
+    "Java Notes/create a link.md",
+    "002 Spring",
+    "001 Java Notes",
+    "001 Java Notes/Varargs.md",
+    "001 Java Notes/Random Numbers.md",
+    "001 Java Notes/Enhanced Switches.md",
+    "001 Java Notes/Methods.md",
+    "001 Java Notes/String Methods.md",
+    "3. String Methods.md",
+    "001 Java Notes/Starter code and taking inputs.md"
+  ]
+}

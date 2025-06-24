@@ -1,0 +1,7 @@
+- A **habit tracker** where you can mark each day’s habit as complete/incomplete.
+- A **calendar view** like GitHub’s contribution grid.
+- A **backend in Django** (API only).
+- A **frontend in Streamlit**, pulling data from the backend.
+- PostgreSQL via **Supabase** (or Railway).
+- Hosted backend on **Railway**, frontend on **Streamlit Cloud**.
+- Possible mobile interface
