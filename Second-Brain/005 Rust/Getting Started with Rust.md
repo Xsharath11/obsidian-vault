@@ -61,3 +61,8 @@ fn main() -> rltk::BError {
 }
 ```
 [[Errors Faced]] ^err1
+
+##### Breaking down the code:
+1. The first line is equivalent to C++'s `#include`. It tells the compiler that we are going to require `Rltk` and `GameState` from the namespace `rltk`
+2. `struct State{}` - We are basically creating a new `structure`. These are basically like classes. We can store a bunch of data in them and also attach methods to them. More about structs: [here](https://doc.rust-lang.org/book/ch05-00-structs.html)
+3. 
