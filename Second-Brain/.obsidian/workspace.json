@@ -11,10 +11,14 @@
             "id": "1eb2f6ccc748f605",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "005 Rust/Getting Started with Rust.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Getting Started with Rust"
             }
           }
         ]
@@ -137,12 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "005 Rust/Getting Started with Rust.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Getting Started with Rust"
             }
           }
         ],
@@ -184,7 +189,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 354.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -197,7 +202,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cbbaa369cb9c1616",
+  "active": "dbf8caedcd0915f6",
   "lastOpenFiles": [
     "004 Habit Tracker/Django Rest API.md",
     "004 Habit Tracker/Create a login page first.md",
