@@ -28,3 +28,13 @@ fn main() {
 7. `cargo search` - search for packages
 
 #### Setup Cargo.toml
+- We are using `rltk` -> Rougelike toolkit library
+- Add the dependancy:
+---
+  ```
+[dependencies]
+rltk = { version = "0.8.7" }
+```
+---
+It's a good idea to occasionally run `cargo update` - this will update the libraries used by your program.
+
