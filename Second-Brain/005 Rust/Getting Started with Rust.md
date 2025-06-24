@@ -25,3 +25,6 @@ fn main() {
 4. `cargo clean` - deletes all intermediate work files, freeing up storage
 5. `cargo verify-project` - check if cargo settings are correct
 6. `cargo install` - install programs via cargo
+7. `cargo search` - search for packages
+
+#### Setup Cargo.toml

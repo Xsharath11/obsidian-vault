@@ -11,4 +11,6 @@ However, it has a few limitations:
 1. Target:
    Rust needs to have the "Target" installed to handle compilation to Web Assembly (WASM)
    `rustup target add wasm32-unknown-unknown`
-2. 
+2. `wasm-bindgen-cli`:
+   This is a pretty impressive tool that can scan your web assembly and build the bits and pieces need to make the code run on the web.
+   `cargo install wasm-bindgen-cli`
