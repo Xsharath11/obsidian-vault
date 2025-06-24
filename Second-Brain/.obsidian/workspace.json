@@ -141,12 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "005 Rust/Getting Started with Rust.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Getting Started with Rust"
             }
           }
         ],
@@ -201,8 +202,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "cbbaa369cb9c1616",
+  "active": "1eb2f6ccc748f605",
   "lastOpenFiles": [
+    "005 Rust/Web Assembly.md",
     "005 Rust/Getting Started with Rust.md",
     "004 Habit Tracker/Django Rest API.md",
     "004 Habit Tracker/Create a login page first.md",
@@ -245,7 +247,6 @@
     "001 Java Notes/Enhanced Switches.md",
     "001 Java Notes/Methods.md",
     "001 Java Notes/String Methods.md",
-    "3. String Methods.md",
-    "001 Java Notes/Starter code and taking inputs.md"
+    "3. String Methods.md"
   ]
 }
