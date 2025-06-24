@@ -141,13 +141,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "005 Rust/Getting Started with Rust.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Getting Started with Rust"
+              "title": "Outline"
             }
           }
         ],
@@ -202,11 +201,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "dbf8caedcd0915f6",
+  "active": "cbbaa369cb9c1616",
   "lastOpenFiles": [
+    "005 Rust/Getting Started with Rust.md",
     "004 Habit Tracker/Django Rest API.md",
     "004 Habit Tracker/Create a login page first.md",
-    "005 Rust/Getting Started with Rust.md",
     "005 Rust",
     "004 Habit Tracker/Rough Notes.md",
     "004 Habit Tracker/Steps.md",
