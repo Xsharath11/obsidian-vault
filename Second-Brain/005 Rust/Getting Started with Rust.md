@@ -60,5 +60,4 @@ fn main() -> rltk::BError {
     rltk::main_loop(context, gs)
 }
 ```
-^Error 1
-[[Errors Faced]] ^bee485
+[[Errors Faced]] ^err1
