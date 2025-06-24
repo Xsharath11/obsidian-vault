@@ -65,4 +65,7 @@ fn main() -> rltk::BError {
 ##### Breaking down the code:
 1. The first line is equivalent to C++'s `#include`. It tells the compiler that we are going to require `Rltk` and `GameState` from the namespace `rltk`
 2. `struct State{}` - We are basically creating a new `structure`. These are basically like classes. We can store a bunch of data in them and also attach methods to them. More about structs: [here](https://doc.rust-lang.org/book/ch05-00-structs.html)
-3. 
+3. `impl GameState for State` - We are telling rust that our `State` structure implements the trait `GameState`. Traits are like base classes or base classes in other languages or an Abstract class: They setup a structure for you to implement in our own code, which can then interact with the library that provides them, without that library having to know anything else about your code.
+   In this case, `GameState`  is a trait provided by RLTK. It uses it to call into your program on each frame.
+   More about traits: [here](https://doc.rust-lang.org/book/ch10-02-traits.html)
+4. 
