@@ -1,3 +1,5 @@
 {
-  "cssTheme": "Border"
+  "cssTheme": "Border",
+  "baseFontSize": 23,
+  "baseFontSizeAction": true
 }

@@ -21,4 +21,7 @@ fn main() {
 #### Cargo Commands:
 1. `cargo init` - init a new project
 2. `cargo build` - downloads all dependencies and compiles them and then compiles your program
-3. `cargo update` - fetch new versions of **crates** 
+3. `cargo update` - fetch new versions of **crates** listed in `cargo.toml`
+4. `cargo clean` - deletes all intermediate work files, freeing up storage
+5. `cargo verify-project` - check if cargo settings are correct
+6. `cargo install` - install programs via cargo
