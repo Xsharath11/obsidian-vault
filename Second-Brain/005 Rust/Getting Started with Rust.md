@@ -68,4 +68,9 @@ fn main() -> rltk::BError {
 3. `impl GameState for State` - We are telling rust that our `State` structure implements the trait `GameState`. Traits are like base classes or base classes in other languages or an Abstract class: They setup a structure for you to implement in our own code, which can then interact with the library that provides them, without that library having to know anything else about your code.
    In this case, `GameState`  is a trait provided by RLTK. It uses it to call into your program on each frame.
    More about traits: [here](https://doc.rust-lang.org/book/ch10-02-traits.html)
-4. 
+4. `fn tick(&mut self, ctx : &mut Rltk)`- It is a function definition: [ref](https://doc.rust-lang.org/book/ch03-03-how-functions-work.html)
+   It does not end with a `-> type` which means it is essentially equivalent to a void function in C.
+	1. `&mut self` - "This function requires access to the parent structure (State) and may change it" `mut` = mutable
+	2. We can also have functions inside a structure that have just `&self` meaning they have access  to the contents of the struct but cannot change it
+	3. `ctx: &mut Rltk` - ctx = context. The colon specifies the type of variable it must be
+	4. `&` - pass as reference. Which is a pointer to an existing copy of the variable. The variable isn't copied, 
