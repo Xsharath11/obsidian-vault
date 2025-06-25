@@ -75,3 +75,15 @@ fn main() -> rltk::BError {
 	3. `ctx: &mut Rltk` - ctx = context. The colon specifies the type of variable it must be
 	4. `&` - pass as reference. Which is a pointer to an existing copy of the variable. The variable isn't copied, you are working on the version that was passed in. Any changes made are made on the original
 	5. `Rltk` is the type of variable you are receiving. It is a struct defined inside the RLTK library that provides various things you can do to the screen
+5. `ctx.cls();` - "call the `cls` function provided by the ctx variable." `cls` - clear screen
+6. `ctx.print(1, 1, "Hello World);` - Print text at (1, 1)
+7. `fn main()` - general main function. Entry point to the program
+8. 
+```
+use rltk::RltkBuilder;
+	let context = RltkBuilder::simple80x50()
+	.with_title(...)
+	.build()?;
+``` 
+This is an example of calling a function from inside a struct where that struct doesn't take a self argument. In other languages, This would be called a constructor.
+We're calling the function `simple80x50` which is a builder provided by RLTK to make a terminal 80x50 chara
