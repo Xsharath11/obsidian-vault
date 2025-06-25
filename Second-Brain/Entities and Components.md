@@ -14,7 +14,12 @@ Here comes in the Idea of an Entity Component based design
 - Components are just data grouped by whatever properties we want our entities to have.
 Example:
 We can build the same set of mobs listed above with components for:
-- Position
-- Renderable
-- Hostile
-- MeleeAI
+- `Position`
+- `Renderable`
+- `Hostile`
+- `MeleeAI`
+- Some `CombatStats` etc
+At any point, for any mob we can just change the components and change the type of mob
+
+Basically, components are just like the inheritance tree but rather than *inheriting* traits, we *compose* them by adding *components* until it does whatever we want. This is called **Composition**
+grep
