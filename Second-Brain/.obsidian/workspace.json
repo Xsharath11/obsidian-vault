@@ -39,14 +39,10 @@
             "id": "6e8f757d12edb421",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "005 Rust/Getting Started with Rust.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Getting Started with Rust"
+              "title": "New tab"
             }
           },
           {
@@ -64,7 +60,7 @@
             }
           },
           {
-            "id": "43ee501284c648a5",
+            "id": "66b9b919fabd7863",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -258,10 +254,10 @@
       "graph:Open graph view": false
     }
   },
-  "active": "43ee501284c648a5",
+  "active": "66b9b919fabd7863",
   "lastOpenFiles": [
-    "Entities and Components.md",
     "005 Rust/Index.md",
+    "Entities and Components.md",
     "005 Rust/Errors Faced.md",
     "005 Rust/Getting Started with Rust - Hello World.md",
     "005 Rust/Web Assembly.md",

@@ -22,4 +22,62 @@ We can build the same set of mobs listed above with components for:
 At any point, for any mob we can just change the components and change the type of mob
 
 Basically, components are just like the inheritance tree but rather than *inheriting* traits, we *compose* them by adding *components* until it does whatever we want. This is called **Composition**
-grep
+
+---
+#### Including specs in the project
+```
+cargo.toml
+[dependencies]
+rltk = { version = "0.8.7" }
+specs = "0.20.0"
+specs-derive = "0.4.1"
+```
+
+Also added some lines of code analogous to imports
+```
+src/main.rs
+use rltk::{GameState, Rltk, RGB, VirtualKeyCode};
+use specs::prelude::*;
+use std::cmp::{max, min};
+use specs_derive::Component;
+```
+
+#### Defining a Position Component
+```
+struct Position {
+	x: i32,
+	y: i32,
+}
+```
+This is a simple *Position* component which has an X and Y coordinate as *32 bit integers*.
+- This is what is known as a `POD` or Plain old Data
+- Only data, no logic
+- Core part of pure ECS
+- Logic is implemented elsewhere
+- There are two reasons to do this:
+	- It keeps all the code that *does something* elsewhere i.e in "Systems"
+	- Performance: It is very fast to keep all of the positions next to each other in memory with no redirects
+
+To use this *Position* Struct, we need to tell specs that it is a *Component*. It can be done as follows:
+```
+struct Position {
+	x: i32,
+	y: i32,
+}
+
+impl Component for Position {
+	type Storage = VecStorage<Self>;
+}
+```
+Lot of repeated typing. `specs-derive` helps us here;
+Instead, we can just do:
+```
+#[derive(Component)]
+struct Position {
+	x: i32,
+	y: i32,
+}
+```
+
+`#[derive(x)]` is a macro that says "*from my basic data, derive the boilerplate required for **x***"
+
