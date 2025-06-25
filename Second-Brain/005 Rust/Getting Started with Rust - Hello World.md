@@ -85,5 +85,7 @@ use rltk::RltkBuilder;
 	.with_title(...)
 	.build()?;
 ``` 
-This is an example of calling a function from inside a struct where that struct doesn't take a self argument. In other languages, This would be called a constructor.
-We're calling the function `simple80x50` which is a builder provided by RLTK to make a terminal 80x50 chara
+This is an example of calling a function from inside a struct where that struct doesn't take a *self* argument. In other languages, This would be called a *constructor*.
+We're calling the function `simple80x50` which is a builder provided by RLTK to make a terminal 80x50 characters
+9. `let gs = State{ };` is an example of a variable assignment. We are creating a copy of the `State` struct defined above
+10. `rltk::main_loop(context, gs);` - calling a function `main_loop` from the `rltk` namespace. The function takes over control of the program and calls the tick function defined earlier
