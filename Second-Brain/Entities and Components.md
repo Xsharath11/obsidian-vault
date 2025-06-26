@@ -83,4 +83,17 @@ struct Position {
 
 #### Defining a renderable component
 We need to create a new component - `Renderable`
+- It will contain a foreground, a background and a glyph (such as @)
+```
+#[derive(Component)]
+struct Renderable {
+	glyph: Rltk::FontCharType,
+	fg: RGB,
+	bg: RGB,
+}
+```
 
+- RGB Comes from RLTK and represents a colour
+- If we didn't do `use rltk::{... RGB}`, we would be typing `rltk::RGB` everytime
+#### Worlds and Registration
+The next component which we need to setup is the `World`

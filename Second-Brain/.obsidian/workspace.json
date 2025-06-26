@@ -65,12 +65,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Entities and Components.md",
+                "file": "006 AWS/Issues with AWS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Entities and Components"
+              "title": "Issues with AWS"
             }
           }
         ],
@@ -194,13 +194,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Entities and Components.md",
+                "file": "006 AWS/Issues with AWS.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Entities and Components"
+              "title": "Outline of Issues with AWS"
             }
           }
         ],
@@ -256,8 +256,10 @@
   },
   "active": "66b9b919fabd7863",
   "lastOpenFiles": [
-    "005 Rust/Index.md",
     "Entities and Components.md",
+    "006 AWS/Issues with AWS.md",
+    "006 AWS",
+    "005 Rust/Index.md",
     "005 Rust/Errors Faced.md",
     "005 Rust/Getting Started with Rust - Hello World.md",
     "005 Rust/Web Assembly.md",
@@ -298,7 +300,6 @@
     "002 Spring",
     "001 Java Notes",
     "001 Java Notes/Varargs.md",
-    "001 Java Notes/Random Numbers.md",
-    "001 Java Notes/Enhanced Switches.md"
+    "001 Java Notes/Random Numbers.md"
   ]
 }
