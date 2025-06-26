@@ -144,3 +144,46 @@ gs.ecs
 	})
 	.build();
 ```
+- This is known as the builder pattern in RUST
+- This works because each function returns a copy of itself
+
+Let us add a few more entities:
+```
+for i in 0..10 {
+	gs.ecs
+	.create_entity()
+	.with(Position { x: i * 7, y: 20 })
+	.with(Renderable {
+		glyph: rltk::to_cp437('F'),
+		fg: RGB::named(rltk::RED),
+		bg: RGB::named(rltk::BLACK),
+	})
+	.build();
+}
+```
+**Note**: `to_cp437` is a helper RLTK provides to let us use Unicode and get the equivalent member of the old DOS/CP437 character set
+
+#### Iterating entities - a generic render system
+Now, we need to actually render all of the entities we have created above
+
+We need to replace the call to render "Hello Rust" with:
+```
+let positions = self.ecs.read_storage::<Position>();
+let renderables = self.ecs.read_storage::<Renderables>();
+
+for (pos, render) in (&positions, &renderables).join() {
+	ctx.set(pos.x, pos.y, render.fg, render.bg, render.glyph)
+}
+```
+- Here we are asking for read only access to the structure used to store the components of each type
+- The join used here is very similar to a database join. It only returns entities that have both.
+
+At this stage, we will be able to see static entities on the screen
+
+**Additional Notes:**
+1. If you change the bg for a particular entity, only the immediate background surrounding the entity is affected.
+2. Notice how the `build` function for the `simple80x50` function is called as `build?()`
+   We can achieve the same result by removing the `?` operator from there and applying it to the context variable in
+   `rltk::main_loop(context?, gs)` *What does the `?` operator do?*^Further-Explorations-1
+3. 
+
