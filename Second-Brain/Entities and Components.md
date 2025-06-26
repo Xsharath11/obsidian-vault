@@ -81,3 +81,6 @@ struct Position {
 
 `#[derive(x)]` is a macro that says "*from my basic data, derive the boilerplate required for **x***"
 
+#### Defining a renderable component
+We need to create a new component - `Renderable`
+
