@@ -1,3 +1,8 @@
+
+[[Getting Started with Rust - Hello World]]
+
+---
+
 #### What is Web Assembly?
 Web assembly is a cool system that lets you run code compiled from non-web-based languages and runs them in the browser
 

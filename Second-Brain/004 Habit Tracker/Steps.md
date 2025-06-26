@@ -2,8 +2,9 @@
 2. [[Basic Django backend]]
 3. [[Django Rest API]]
 4. [[Streamlit UI]]
-5. [[Possible UI changes / Migration from streamlit]]
-6. [[Deploy]]
+5. [[Extend functionality to log habits]]
+6. [[Possible UI changes / Migration from streamlit]]
+7. [[Deploy]]
 ---
 ### Issues faced
 1. [[Create a login page first]]

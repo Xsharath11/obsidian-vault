@@ -187,3 +187,15 @@ At this stage, we will be able to see static entities on the screen
    `rltk::main_loop(context?, gs)` *What does the `?` operator do?*^Further-Explorations-1
 3. 
 
+#### Example System - Random Movement
+**Steps:**
+1. New Component to handle the movement. - `LeftMover`
+2. Tell ECS to use the component. i.e `gs.ecs.register::<LeftMover>();`
+3. Add the Component to the entity builder logic `.with(LeftMover{})`
+4. Actually Make them move
+
+Steps 1 through 3 are straight forward
+
+For step 4, we will need to define a new system:
+*Systems are a way of keeping entity/component logic together, and have them run independently*
+

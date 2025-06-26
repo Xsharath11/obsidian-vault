@@ -9,3 +9,5 @@ sudo systemctl status tomcat10
 :%s/str1/str2/gc
 ```
 ^ Find str1 and replace with str2 in one file. gc -> confirm for each replace
+
+TODO: Add ghostty and alias shortcuts here

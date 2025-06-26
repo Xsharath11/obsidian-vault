@@ -15,3 +15,9 @@ This doc will focus on the issues faced while setting up the UI.
 	- Only on the **next rerun**, the updated `session_state` (with token `None`) takes effect.
 	Solution:
 	- Force a rerun by adding `st.rerun()` after `st.sucess()`
+
+Streamlit UI is currently handling signup, login, logout and creation and listing of habits for each user
+
+#### TODO: How can we create a github style tracker for habit logs using streamlit?
+ - Might need to look at migration from streamlit sooner rather than later to meet end goal of a github style progress tracker
+ 
