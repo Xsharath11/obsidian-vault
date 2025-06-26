@@ -65,12 +65,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "006 AWS/Issues with AWS.md",
+                "file": "005 Rust/Entities and Components.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Issues with AWS"
+              "title": "Entities and Components"
             }
           }
         ],
@@ -194,13 +194,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "006 AWS/Issues with AWS.md",
+                "file": "005 Rust/Entities and Components.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Issues with AWS"
+              "title": "Outline of Entities and Components"
             }
           }
         ],
@@ -256,12 +256,12 @@
   },
   "active": "66b9b919fabd7863",
   "lastOpenFiles": [
-    "Entities and Components.md",
-    "006 AWS/Issues with AWS.md",
-    "006 AWS",
     "005 Rust/Index.md",
+    "005 Rust/Entities and Components.md",
     "005 Rust/Errors Faced.md",
     "005 Rust/Getting Started with Rust - Hello World.md",
+    "006 AWS/Issues with AWS.md",
+    "006 AWS",
     "005 Rust/Web Assembly.md",
     "004 Habit Tracker/Django Rest API.md",
     "004 Habit Tracker/Create a login page first.md",

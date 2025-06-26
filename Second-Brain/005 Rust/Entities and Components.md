@@ -97,3 +97,50 @@ struct Renderable {
 - If we didn't do `use rltk::{... RGB}`, we would be typing `rltk::RGB` everytime
 #### Worlds and Registration
 The next component which we need to setup is the `World`
+A `World` is an ECS, provided by `Specs`. We need to extend our `State` struct to have a place to store the world
+
+```
+struct State {
+	ecs: World
+}
+```
+
+And now in `main`, when we create the world - we'll put an ECS into it:
+
+```
+let mut gs = State {
+	ecs: World::new()
+};
+```
+
+- Notice that `World::new()` is another constructor.
+- It is a method inside the `World` type but without a reference to `self`
+- Due to this, It does not work on existing worlds. It only creates new ones
+
+The next thing to do is to is tell ECS about the components we have created. It is done as follows:
+```
+gs.ecs.register::<Position>();
+gs.ecs.register::<Renderable>();
+```
+What this does:
+- Tells our `World` to take a look at the types we are giving it, and do some internal magic to create storage systems for each of them
+- `Specs` has made this easy. so long as it implements `Component`, You can put anything you like as a Component!
+#### Creating entities
+- Now we have a `World` that knows how to store `Position` and `Renderable` components
+- In order to use them, they need to be attached to something in the game
+- In the *ECS World*, that is called an *entity*
+- They are little more than an identification number
+- These identification numbers tell the ECS that an entity exists
+- They can have any combination of components attached to them
+Creating an Entity with a `Renderable` and a `Position`:
+```
+gs.ecs
+	.create_entity()
+	.with(Position { x: 40, y: 25 })
+	.with(Renderable {
+		glyph: rltk::to_cp437('@'),
+		fg: RGB::named(rltk::YELLOW),
+		bg: RGB::named(rltk::BLACK),
+	})
+	.build();
+```
