@@ -199,3 +199,96 @@ Steps 1 through 3 are straight forward
 For step 4, we will need to define a new system:
 *Systems are a way of keeping entity/component logic together, and have them run independently*
 
+```
+struct LeftWalker {}
+
+impl<'a> System<'a> for LeftWalker {
+    type SystemData = (ReadStorage<'a, LeftMover>, 
+                        WriteStorage<'a, Position>);
+
+    fn run(&mut self, (lefty, mut pos) : Self::SystemData) {
+        for (_lefty,pos) in (&lefty, &mut pos).join() {
+            pos.x -= 1;
+            if pos.x < 0 { pos.x = 79; }
+        }
+    }
+}
+```
+- Line 1 just defines an empty structure - somewhere to attach the logic
+- `impl<'a> System<'a> for LeftWalker` - We are implementing Specs' System Trait for the `LeftWalker` struct
+- The `'a` are *lifetime specifiers*. [Ref](https://doc.rust-lang.org/book/ch10-00-generics.html)
+- `type SystemData` - defining a type to tell Specs what the system requires
+- In this case, it requires read access to `LeftMover` Components and Write access to `Position` Components since the position will be changing
+- `fn run` is the actual trait implementation which is required by the `impl System`
+- For loop here is very similar to the one defined before. It will run once for each entity that has a `LeftMover` and a `Position` Component
+- The underscore before the `LeftMover` variable is to tell rust that we are not using this variable and it is not a bug [[General Rust notes#^533349]]
+
+Notice how what we have written is very similar to our rendering code. But instead of calling *in* to the ECS, *the ECS system is calling into* our function/system. It can be a tough judgement call on which to use
+- If your system just needs data from the ECS, then a system is a right place to put it
+- If it also needs access to other parts of your program, it is better implemented on the outside - calling in^0a680e
+
+ **Now that we have written our state, we need to be able to use it.**
+ To do this, we need to add a `run_systems` function to our state:
+```
+impl State {
+	fn run_systems(&mut self) {
+		let mut lw = LeftWalker{};
+		lw.run_now(&self.ecs);
+		self.ecs.maintain();
+	}
+}
+```
+1. `impl State` - We would like to implement functionality for `State`
+2. `fn run_systems(&mut self)` - we are defining a function, mutable, access to self. i.e It can access data in its instance of `State` using the `self.` keyword
+3. `let mut lw = LeftWalker{};` - Creates a new mutable instance of the `LeftWalker` System
+4. `lw.run_now(&self.ecs)` - tells the system to run and tells it how to find the ECS
+5. `self.ecs.maintain()` - tells specs that if any changes were queued up by the syatems, they should be applied to the world now
+To finally run the system, we need to add the following in the `tick` function:
+```
+self.run_systems();
+```
+
+#### Moving the Player
+We need to know which entity is the Player.
+For this,  we will make a new tag component
+```
+#[derive(Component, Debug)]
+struct Player {}
+```
+
+We need to add it to the registration:
+```
+gs.ecs.register::<Player>();
+```
+
+We need to then add it to the Players entity:
+```
+gs.ecs
+	.create_entity()
+	.with(Position {x: 40, y: 25})
+	.with(Renderable {
+		glyph: rltk::to_cp437('@'),
+		fg: RGB::named(rltk::Yellow),
+		bg: RGB::named(rltk::BLACK),
+	})
+	.with(Player{})
+	.build();
+```
+
+Next, we need to implement a new function: `try_move_player`
+```
+fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
+	let mut positions = ecs.write_storage::<Position>();
+	let mut players = ecs.write_storage::<Players>();
+
+	for (_player, pos) in (&mut players, &mut positions).join() {
+		pos.x = min(79, max(0, pos.x + delta_x));
+		pos.y = min(49, max(0, pos.y + delta_y));
+	}
+} 
+```
+- As we can make out by now, the function gains write access to `Position` and `Player`
+- Joins the two
+- it will only work on entities that have both the player and Position component
+- It just adds the delta value to x and y
+

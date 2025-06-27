@@ -74,7 +74,7 @@ println!("Max u32: {}", u32::MAX);
 let is_true: bool = true
 ```
 
-Another way to ignore errors and warnings for unused variables is by adding an `_` to the beginning of the variable
+Another way to ignore errors and warnings for unused variables is by adding an `_` to the beginning of the variable ^533349
 
 #### Generating Random numbers within a certain range:
 ```

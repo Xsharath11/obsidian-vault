@@ -25,4 +25,5 @@ help: use the `?` operator to extract the `Result<BTerm, std::boxed::Box<dyn std
 65   |     rltk::main_loop(context?, gs)
      |                            +
 ```
-2. 
+2. [[Entities and Components#^0a680e]]
+3. 
