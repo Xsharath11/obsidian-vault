@@ -68,3 +68,85 @@ let mut age: u32 = age.trim().parse()
 ```
 println!("Max u32: {}", u32::MAX);
 ```
+
+#### Booleans:
+```
+let is_true: bool = true
+```
+
+Another way to ignore errors and warnings for unused variables is by adding an `_` to the beginning of the variable
+
+#### Generating Random numbers within a certain range:
+```
+use rand::Rng;
+
+fn main() {
+	let random_int: u32 = rand::rng().random_range(1..101);
+	println!("Random Number: {}",random_int)
+}
+```
+
+#### Match 
+```
+fn main() {
+	let age2: i32 = 8;
+	match age2 {
+		1..=18 => println!("Important Birthday"),
+		21 | 50 => println!("Important Birthday"),
+		65..=i32::MAX => println!("Important Birthday")
+		_ => println!("Not an important birthday"),
+	};
+}
+```
+
+#### Array Methods:
+```
+let arr_1 = [1,2,3,4,5];
+println!("1st: {}", arr_1[0]);
+println!("Length: {}", arr_1.len());
+```
+
+*Looping through the Array*:
+```
+let arr = [1,2,3,5,6,7,8];
+let mut loop_idx = 0;
+
+loop{
+	if arr[loop_idx] % 2 == 0 {
+		loop_idx += 1;
+		continue;
+	}
+	if arr[loop_idx] == 9 {
+		break;
+	}
+	println!("Val: {}", arr[loop_ids]);
+	loop_idx += 1;
+}
+```
+^ Primitive loop
+
+```
+while loop_idx < arr.len(){
+println!(...);
+}
+```
+^ While Loops
+
+```
+for val in arr.iter() {
+	println!(...);
+}
+```
+
+#### Tuples
+```
+let my_tuple: (u8, String, f64) = (47, "Name".to_string(), 50_000.00)
+println!("Name: {}", my_tuple.2);
+println!("Age: {}", my_tuple.1);
+```
+
+**Unpacking a tuple:**
+```
+let(v1, v2, v3) = my_tuple;
+println!("Age: {}", v1);
+```
