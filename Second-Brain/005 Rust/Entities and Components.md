@@ -315,6 +315,7 @@ player_input(self, ctx);
 
 By this point we will have a moveable player on the screen, with some other moving characters
 
+---
 **Note**:
 ```
 fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
@@ -332,3 +333,4 @@ fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
 ```
 We can use the clamp function to achieve the same functionality
 
+[[Walking a Map]]
