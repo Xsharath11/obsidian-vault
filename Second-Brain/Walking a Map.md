@@ -109,3 +109,33 @@ fn draw_map(map: &[TileType], ctx: &mut Rltk) {
 - Not useful yet but maybe in the future
 
 We also need to call this function in the tick function
+```
+let map = self.ecs.fetch::<Vec<TileType>>();
+draw_map(&map, ctx);
+```
+Must be placed below `player_input` and `run_systems` as mutable borrow of self occurs there whereas immutable borrow of self occurs before it if the above lines are placed above ^42e5c1
+#### Making walls solid
+At this point, we will have a map where we can move around but the walls are not solid and we can move through them
+
+To achieve this, we just need to make small changes to the `try_move_player` function:
+```
+fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
+    let mut positions = ecs.write_storage::<Position>();
+    let mut players = ecs.write_storage::<Player>();
+    let map = ecs.fetch::<Vec<TileType>>();
+
+    for (_player, pos) in (&mut players, &mut positions).join() {
+        //pos.x = min(79, max(0, pos.x + delta_x));
+        //pos.y = min(49, max(0, pos.y + delta_y));
+        let destination_idx = xy_idx(pos.x + delta_x, pos.y + delta_y);
+        if map[destination_idx] != TileType::Wall {
+            pos.x = (pos.x + delta_x).clamp(0, 79);
+            pos.y = (pos.y + delta_y).clamp(0, 49);
+        }
+    }
+}
+
+```
+- Fetch the map using ecs
+- Before moving, make sure that the TileType is not a wall
+

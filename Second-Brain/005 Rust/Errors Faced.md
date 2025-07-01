@@ -26,4 +26,5 @@ help: use the `?` operator to extract the `Result<BTerm, std::boxed::Box<dyn std
      |                            +
 ```
 2. [[Entities and Components#^0a680e]]
-3. 
+3. [[Walking a Map#^42e5c1]] - Immutable borrow before mutable - Borrow Checker?
+4. Mod vs Pub

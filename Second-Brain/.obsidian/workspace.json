@@ -69,12 +69,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Walking a Map.md",
+                "file": "005 Rust/Errors Faced.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Walking a Map"
+              "title": "Errors Faced"
             }
           }
         ],
@@ -198,13 +198,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Walking a Map.md",
+                "file": "005 Rust/Errors Faced.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Walking a Map"
+              "title": "Outline of Errors Faced"
             }
           }
         ],
@@ -261,10 +261,10 @@
   "active": "dc537f4f3ff9b9ca",
   "lastOpenFiles": [
     "Walking a Map.md",
+    "005 Rust/Errors Faced.md",
     "005 Rust/Entities and Components.md",
     "005 Rust/Index.md",
     "005 Rust/Getting Started with Rust - Hello World.md",
-    "005 Rust/Errors Faced.md",
     "004 Habit Tracker/Steps.md",
     "005 Rust/General Rust notes.md",
     "005 Rust/Web Assembly.md",
