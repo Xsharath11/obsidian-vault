@@ -139,3 +139,4 @@ fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
 - Fetch the map using ecs
 - Before moving, make sure that the TileType is not a wall
 
+[[A More Interesting Map]]
