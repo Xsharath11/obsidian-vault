@@ -32,7 +32,7 @@ pub fn xy_idx(x: i32, y: i32) -> usize {
 #### Constructor function to make  map:
 ```
 fn new_map() -> Vec<TileType> {
-	let mut map = Vec![TileType::Floor; 80*50];
+	let mut map = vec![TileType::Floor; 80*50];
 
 	// Make Boundary Walls
 	for x in 0..80 {

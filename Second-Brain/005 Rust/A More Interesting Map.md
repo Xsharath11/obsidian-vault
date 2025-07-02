@@ -63,3 +63,35 @@ pub fn new_map_rooms_and_corridors() -> Vec<TileType> {
 }
 ```
 
+#### Making a Corridor
+- We need two functions. 
+- One for horizontal and one for vertical tunnels
+```
+fn apply_horizontal_tunnel(map: &mut [TileType], x1; i32, x2:i32, y: i32) {
+	for x in min(x1, x2) ..= max(x1, x2) {
+		let idx = xy_idx(x, y);
+		if idx > 0 && idx < 80*50 {
+			map[idx as usize] = TileType::Floor
+		}
+	}
+}
+```
+- Similarly for vertical
+#### Making a simple dungeon
+```
+pub fn new_map_rooms_and_corridors() -> Vec<TileType> {
+	let mut map = vec![TileType::Wall; 80*50];
+	// New Definitions 
+	let mut rooms: Vec<Rect> = Vec::new();
+	const MAX_ROOMS: i32 = 30;
+	const MIN_SIZE: i32 = 6;
+	const MAX_SIZE: i32 = 10;
+	// RNG
+	let mut rng = RandomNumberGenerator::new();
+	for _ in 0..MAX_ROOMS {
+		let w = rng.range(MIN_SIZE, MAX_SIZE);
+		let h = rng.range(MIN_SIZE, MAX_SIZE);
+	
+	}
+}
+```
