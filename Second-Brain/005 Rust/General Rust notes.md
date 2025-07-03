@@ -7,6 +7,18 @@
 Cargo is Rust's package manager and build system
 It is used to download libraries and build them etc
 
+*mut*: mutability
+- basically we cannot redeclare variables which are not mutable
+*const*: 
+- variables in Rust are immutable by default.
+- So why do we need constants?
+- **We cannot mutate a const**
+- const variables must **ALWAYS** be type annotated
+- const variables can only be set to a constant:
+	- 100_000
+	- "ABC"
+	- It cannot be set to for example, a return value of a function
+
 *Start a Rust Project*: `cargo new <Name>`
 - This generates a `src` directory and a `Cargo.toml` file
 - `Cargo.lock` stores versions of the dependencies
@@ -60,47 +72,68 @@ let mut age: u32 = age.trim().parse()
 - Since the age variable is now mutable, we can make changes on it
 - We can define the datatypes by using a `: <type>`
 - We can also convert variables of one type to another by using the `parse()` method
+```rust
+let x: i32 = 5;
+x = 6; // This is not allowed if mut keyword is not used
+---
+let x: i32 = 5;
+...
+let x: &str = "Six";
+// This is allowed and is called shadowing
+// We are effectively re-declaring the variables
+```
+---
+#### Project 1:
+[[Creating a Guessing game in Rust]]
 
+---
 #### Different Datatypes:
- Unsigned integer: *u8, u16, u32 ... usize*
- Signed integer: *i8, i16, i32 ... isize*
+*Scalar Datatypes*: represent a single value
+*Compound Datatypes*: represent a group of values
 
-#### Fetching the max of data types:
-```
-println!("Max u32: {}", u32::MAX);
-```
-
-#### Booleans:
+##### Scalar Datatypes:
+###### Integers:
+Unsigned integer: *u8, u16, u32 ... usize*
+Signed integer: *i8, i16, i32 ... isize*
+Rust default: *i32*
+- keep overflow in mind
+- In release builds: performs 2s compliment overflow handling
+###### Booleans:
 ```
 let is_true: bool = true
 ```
 
+###### Floating Point Numbers:
+- Rust default: 64bit double precision floating point (*f32*)
+###### Characters:
+- unicode characters
+#### Fetching the max of data types:
+```
+println!("Max u32: {}", u32::MAX);
+```
 Another way to ignore errors and warnings for unused variables is by adding an `_` to the beginning of the variable ^533349
-
-#### Generating Random numbers within a certain range:
+##### Compound Datatypes:
+###### Tuples
 ```
-use rand::Rng;
-
-fn main() {
-	let random_int: u32 = rand::rng().random_range(1..101);
-	println!("Random Number: {}",random_int)
-}
+let my_tuple: (u8, String, f64) = (47, "Name".to_string(), 50_000.00)
 ```
 
-#### Match 
+**Unpacking a tuple:**
 ```
-fn main() {
-	let age2: i32 = 8;
-	match age2 {
-		1..=18 => println!("Important Birthday"),
-		21 | 50 => println!("Important Birthday"),
-		65..=i32::MAX => println!("Important Birthday")
-		_ => println!("Not an important birthday"),
-	};
-}
+let(v1, v2, v3) = my_tuple;
+println!("Age: {}", v1);
+```
+- we can also get values from tuples using the dot notation
+```
+println!("Name: {}", my_tuple.2);
+println!("Age: {}", my_tuple.1);
 ```
 
-#### Array Methods:
+###### Arrays:
+- Arrays are fixed size
+- for variable size, use a Vec
+- 
+Array Methods:
 ```
 let arr_1 = [1,2,3,4,5];
 println!("1st: {}", arr_1[0]);
@@ -139,17 +172,10 @@ for val in arr.iter() {
 }
 ```
 
-#### Tuples
-```
-let my_tuple: (u8, String, f64) = (47, "Name".to_string(), 50_000.00)
-println!("Name: {}", my_tuple.2);
-println!("Age: {}", my_tuple.1);
-```
 
-**Unpacking a tuple:**
-```
-let(v1, v2, v3) = my_tuple;
-println!("Age: {}", v1);
-```
+---
 
-[[Creating a Guessing game in Rust]]
+### Functions:
+- Snake case for functions: 
+	- All undercase
+	- use underscore

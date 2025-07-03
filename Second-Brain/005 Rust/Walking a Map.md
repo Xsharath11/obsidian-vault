@@ -3,7 +3,7 @@
 	- Walls
 	- Floors
 - We can use an `enum` to represent them
-```
+```rust
 #[derive(PartialEq, Copy, Clone)]
 enum TileType {
 	Wall, Floor
@@ -19,7 +19,7 @@ enum TileType {
 - We'll make a function that returns a vector of tiles (`vec`).   
 - We'll use a vector sized to the whole map
 - For this, we need a way to figure out which array index is at given x/y pos
-```
+```rust
 pub fn xy_idx(x: i32, y: i32) -> usize {
 	(y as usize * 80) + x as usize
 }
@@ -30,7 +30,7 @@ pub fn xy_idx(x: i32, y: i32) -> usize {
 - In Rust, any function that ends with a statement that lacks a `;` at the end is considered the return statement for that function
 
 #### Constructor function to make  map:
-```
+```rust
 fn new_map() -> Vec<TileType> {
 	let mut map = vec![TileType::Floor; 80*50];
 
@@ -73,7 +73,7 @@ fn new_map() -> Vec<TileType> {
 
 #### Making the map visible to the World
 - Specs includes a concept of "resources" - Shared data which the whole ECS can use, So in our main function we need to add the randomly generated map to use
-```
+```rust
 gs.ecs.insert(new_map());
 ```
 
@@ -81,7 +81,7 @@ The map is now available from anywhere the ECS can see! Now inside your code, yo
 
 #### Draw the map
 - Now that we have a map available, we need to render it on the screen
-```
+```rust
 fn draw_map(map: &[TileType], ctx: &mut Rltk) {
 	let mut y = 0;
 	let mut x = 0;
@@ -109,7 +109,7 @@ fn draw_map(map: &[TileType], ctx: &mut Rltk) {
 - Not useful yet but maybe in the future
 
 We also need to call this function in the tick function
-```
+```rust
 let map = self.ecs.fetch::<Vec<TileType>>();
 draw_map(&map, ctx);
 ```
@@ -118,7 +118,7 @@ Must be placed below `player_input` and `run_systems` as mutable borrow of self 
 At this point, we will have a map where we can move around but the walls are not solid and we can move through them
 
 To achieve this, we just need to make small changes to the `try_move_player` function:
-```
+```rust
 fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
     let mut positions = ecs.write_storage::<Position>();
     let mut players = ecs.write_storage::<Player>();

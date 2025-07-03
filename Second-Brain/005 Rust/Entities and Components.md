@@ -25,7 +25,7 @@ Basically, components are just like the inheritance tree but rather than *inheri
 
 ---
 #### Including specs in the project
-```
+```rust
 cargo.toml
 [dependencies]
 rltk = { version = "0.8.7" }
@@ -34,7 +34,7 @@ specs-derive = "0.4.1"
 ```
 
 Also added some lines of code analogous to imports
-```
+```rust
 src/main.rs
 use rltk::{GameState, Rltk, RGB, VirtualKeyCode};
 use specs::prelude::*;
@@ -43,7 +43,7 @@ use specs_derive::Component;
 ```
 
 #### Defining a Position Component
-```
+```rust
 struct Position {
 	x: i32,
 	y: i32,
@@ -59,7 +59,7 @@ This is a simple *Position* component which has an X and Y coordinate as *32 bit
 	- Performance: It is very fast to keep all of the positions next to each other in memory with no redirects
 
 To use this *Position* Struct, we need to tell specs that it is a *Component*. It can be done as follows:
-```
+```rust
 struct Position {
 	x: i32,
 	y: i32,
@@ -71,7 +71,7 @@ impl Component for Position {
 ```
 Lot of repeated typing. `specs-derive` helps us here;
 Instead, we can just do:
-```
+```rust
 #[derive(Component)]
 struct Position {
 	x: i32,
@@ -84,7 +84,7 @@ struct Position {
 #### Defining a renderable component
 We need to create a new component - `Renderable`
 - It will contain a foreground, a background and a glyph (such as @)
-```
+```rust
 #[derive(Component)]
 struct Renderable {
 	glyph: Rltk::FontCharType,
@@ -99,7 +99,7 @@ struct Renderable {
 The next component which we need to setup is the `World`
 A `World` is an ECS, provided by `Specs`. We need to extend our `State` struct to have a place to store the world
 
-```
+```rust
 struct State {
 	ecs: World
 }
@@ -107,7 +107,7 @@ struct State {
 
 And now in `main`, when we create the world - we'll put an ECS into it:
 
-```
+```rust
 let mut gs = State {
 	ecs: World::new()
 };
@@ -118,7 +118,7 @@ let mut gs = State {
 - Due to this, It does not work on existing worlds. It only creates new ones
 
 The next thing to do is to is tell ECS about the components we have created. It is done as follows:
-```
+```rust
 gs.ecs.register::<Position>();
 gs.ecs.register::<Renderable>();
 ```
@@ -133,7 +133,7 @@ What this does:
 - These identification numbers tell the ECS that an entity exists
 - They can have any combination of components attached to them
 Creating an Entity with a `Renderable` and a `Position`:
-```
+```rust
 gs.ecs
 	.create_entity()
 	.with(Position { x: 40, y: 25 })
@@ -148,7 +148,7 @@ gs.ecs
 - This works because each function returns a copy of itself
 
 Let us add a few more entities:
-```
+```rust
 for i in 0..10 {
 	gs.ecs
 	.create_entity()
@@ -167,7 +167,7 @@ for i in 0..10 {
 Now, we need to actually render all of the entities we have created above
 
 We need to replace the call to render "Hello Rust" with:
-```
+```rust
 let positions = self.ecs.read_storage::<Position>();
 let renderables = self.ecs.read_storage::<Renderables>();
 
@@ -199,7 +199,7 @@ Steps 1 through 3 are straight forward
 For step 4, we will need to define a new system:
 *Systems are a way of keeping entity/component logic together, and have them run independently*
 
-```
+```rust
 struct LeftWalker {}
 
 impl<'a> System<'a> for LeftWalker {
@@ -229,7 +229,7 @@ Notice how what we have written is very similar to our rendering code. But inste
 
  **Now that we have written our state, we need to be able to use it.**
  To do this, we need to add a `run_systems` function to our state:
-```
+```rust
 impl State {
 	fn run_systems(&mut self) {
 		let mut lw = LeftWalker{};
@@ -244,25 +244,25 @@ impl State {
 4. `lw.run_now(&self.ecs)` - tells the system to run and tells it how to find the ECS
 5. `self.ecs.maintain()` - tells specs that if any changes were queued up by the syatems, they should be applied to the world now
 To finally run the system, we need to add the following in the `tick` function:
-```
+```rust
 self.run_systems();
 ```
 
 #### Moving the Player
 We need to know which entity is the Player.
 For this,  we will make a new tag component
-```
+```rust
 #[derive(Component, Debug)]
 struct Player {}
 ```
 
 We need to add it to the registration:
-```
+```rust
 gs.ecs.register::<Player>();
 ```
 
 We need to then add it to the Players entity:
-```
+```rust
 gs.ecs
 	.create_entity()
 	.with(Position {x: 40, y: 25})
@@ -276,7 +276,7 @@ gs.ecs
 ```
 
 Next, we need to implement a new function: `try_move_player`
-```
+```rust
 fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
 	let mut positions = ecs.write_storage::<Position>();
 	let mut players = ecs.write_storage::<Players>();
@@ -293,7 +293,7 @@ fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
 - It just adds the delta value to x and y
 
 #### We need to define another function to read keyboard input
-```
+```rust
 fn player_input(gs: &mut State, ctx: &mut Rltk) {
 	match ctx.key {
 		None => {} // Nothing happend
@@ -309,7 +309,7 @@ fn player_input(gs: &mut State, ctx: &mut Rltk) {
 ```
 
 Finally we need to add the function into `tick`:
-```
+```rust
 player_input(self, ctx);
 ```
 
@@ -317,7 +317,7 @@ By this point we will have a moveable player on the screen, with some other movi
 
 ---
 **Note**:
-```
+```rust
 fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
     let mut positions = ecs.write_storage::<Position>();
     let mut players = ecs.write_storage::<Player>();

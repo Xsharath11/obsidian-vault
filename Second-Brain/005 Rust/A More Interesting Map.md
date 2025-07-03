@@ -1,7 +1,7 @@
 Having `///` before a function definition is Rust's way of handling docstrings
 
 #### Making Rectangular rooms
-```
+```rust
 pub fn new_map_rooms_and_corridors() -> Vec<TileType> {
 	let mut map = vec![TileType::Wall, 80*50];
 	map
@@ -12,7 +12,7 @@ pub fn new_map_rooms_and_corridors() -> Vec<TileType> {
   `gs.ecs.insert(...)` with the new function
 
 In `rect.rs`, We add the following to create rectangular rooms:
-```
+```rust
 pub struct Rect {
     pub x1 : i32,
     pub x2 : i32,
@@ -38,7 +38,7 @@ impl Rect {
 - There is nothing new here with all of the functions doing as their name implies
 
 Next, we need a function in *map.rs* which actually uses the struct and functions defined in *rect.rs* and creates the rooms on the given map:
-```
+```rust
 fn apply_room_to_map(room : &Rect, map: &mut [TileType]) {
     for y in room.y1 +1 ..= room.y2 {
         for x in room.x1 + 1 ..= room.x2 {
@@ -49,7 +49,7 @@ fn apply_room_to_map(room : &Rect, map: &mut [TileType]) {
 ```
 
 Now, we actually need a function to create the map:
-```
+```rust
 pub fn new_map_rooms_and_corridors() -> Vec<TileType> {
     let mut map = vec![TileType::Wall; 80*50];
 
@@ -66,7 +66,7 @@ pub fn new_map_rooms_and_corridors() -> Vec<TileType> {
 #### Making a Corridor
 - We need two functions. 
 - One for horizontal and one for vertical tunnels
-```
+```rust
 fn apply_horizontal_tunnel(map: &mut [TileType], x1; i32, x2:i32, y: i32) {
 	for x in min(x1, x2) ..= max(x1, x2) {
 		let idx = xy_idx(x, y);
@@ -78,7 +78,7 @@ fn apply_horizontal_tunnel(map: &mut [TileType], x1; i32, x2:i32, y: i32) {
 ```
 - Similarly for vertical
 #### Making a simple dungeon
-```
+```rust
 pub fn new_map_rooms_and_corridors() -> Vec<TileType> {
 	let mut map = vec![TileType::Wall; 80*50];
 	// New Definitions 
