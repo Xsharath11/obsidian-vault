@@ -59,6 +59,7 @@ let mut age: u32 = age.trim().parse()
 - We can also notice that we are building in our error handling directly as we code in the variables
 - Since the age variable is now mutable, we can make changes on it
 - We can define the datatypes by using a `: <type>`
+- We can also convert variables of one type to another by using the `parse()` method
 
 #### Different Datatypes:
  Unsigned integer: *u8, u16, u32 ... usize*
@@ -150,3 +151,5 @@ println!("Age: {}", my_tuple.1);
 let(v1, v2, v3) = my_tuple;
 println!("Age: {}", v1);
 ```
+
+[[Creating a Guessing game in Rust]]

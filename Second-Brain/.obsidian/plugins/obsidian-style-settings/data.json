@@ -1,3 +1,4 @@
 {
-  "minimal-style@@h1-font": "\"\""
+  "minimal-style@@h1-font": "\"\"",
+  "Editor@@codeblock-style-select": "codeblock-style-one-dark"
 }

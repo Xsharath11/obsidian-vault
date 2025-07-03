@@ -1,0 +1,5 @@
+.markdown-source-view code,
+.markdown-preview-view code {
+  white-space: pre;
+  overflow-x: auto;
+}

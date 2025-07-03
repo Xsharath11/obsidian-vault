@@ -90,9 +90,23 @@
               "icon": "lucide-file",
               "title": "General Rust notes"
             }
+          },
+          {
+            "id": "62dc61895b7f2416",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "005 Rust/Creating a Guessing game in Rust.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Creating a Guessing game in Rust"
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "vertical"
@@ -212,13 +226,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "005 Rust/General Rust notes.md",
+                "file": "005 Rust/Creating a Guessing game in Rust.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of General Rust notes"
+              "title": "Outline of Creating a Guessing game in Rust"
             }
           }
         ],
@@ -272,17 +286,18 @@
       "graph:Open graph view": false
     }
   },
-  "active": "1061bc10ab13e891",
+  "active": "62dc61895b7f2416",
   "lastOpenFiles": [
+    "005 Rust/Creating a Guessing game in Rust.md",
+    "005 Rust/General Rust notes.md",
+    "005 Rust/Getting Started with Rust - Hello World.md",
     "005 Rust/A More Interesting Map.md",
     "005 Rust/Walking a Map.md",
     "005 Rust/Index.md",
     "000 Quick Notes/Commands.md",
     "005 Rust/Entities and Components.md",
     "005 Rust/Errors Faced.md",
-    "005 Rust/Getting Started with Rust - Hello World.md",
     "004 Habit Tracker/Steps.md",
-    "005 Rust/General Rust notes.md",
     "005 Rust/Web Assembly.md",
     "003 Blog Ideas/Some Random Blog Ideas.md",
     "004 Habit Tracker/Extend functionality to log habits.md",
@@ -314,7 +329,6 @@
     "002 Spring/Pasted image 20250609140943.png",
     "Pasted image 20250609140756.png",
     "001 Java Notes/Arrays.md",
-    "001 Java Notes/Java Notes.md",
     "000 Quick Notes/Untitled",
     "000 Quick Notes",
     "002 Spring",

@@ -1,5 +1,8 @@
 {
   "cssTheme": "Border",
   "baseFontSize": 23,
-  "baseFontSizeAction": true
+  "baseFontSizeAction": true,
+  "enabledCssSnippets": [
+    "horizontal-scroll"
+  ]
 }
