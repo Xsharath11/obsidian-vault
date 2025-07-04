@@ -8,82 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4e0f300bd4558d33",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "005 Rust/Errors Faced.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Errors Faced"
-            }
-          },
-          {
-            "id": "cf8f0ae6af49aa8d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "004 Habit Tracker/Steps.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Steps"
-            }
-          },
-          {
-            "id": "b8a9994d39bb1e09",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "005 Rust/Entities and Components.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Entities and Components"
-            }
-          },
-          {
-            "id": "c1cad24b941de11b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "005 Rust/Entities and Components.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Entities and Components"
-            }
-          },
-          {
-            "id": "dc537f4f3ff9b9ca",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "005 Rust/Walking a Map.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Walking a Map"
-            }
-          },
-          {
             "id": "1061bc10ab13e891",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "005 Rust/General Rust notes.md",
+                "file": "005 Rust/005 1 Learning/General Rust notes.md",
                 "mode": "source",
                 "source": false
               },
@@ -97,7 +27,35 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Ownership Model.md",
+                "file": "005 Rust/005 2 RLTK/A More Interesting Map.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "A More Interesting Map"
+            }
+          },
+          {
+            "id": "ad1517acb4a85797",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Field of View.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Field of View"
+            }
+          },
+          {
+            "id": "6b7ff7be4492900b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "005 Rust/005 1 Learning/Ownership Model.md",
                 "mode": "source",
                 "source": false
               },
@@ -106,21 +64,21 @@
             }
           },
           {
-            "id": "0a00d6038ecbab1d",
+            "id": "eca3508e615f3cd9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "005 Rust/A More Interesting Map.md",
+                "file": "005 Rust/005 1 Learning/Ownership Model.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "A More Interesting Map"
+              "title": "Ownership Model"
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -240,13 +198,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Ownership Model.md",
+                "file": "Field of View.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Ownership Model"
+              "title": "Outline of Field of View"
             }
           }
         ],
@@ -300,19 +258,24 @@
       "graph:Open graph view": false
     }
   },
-  "active": "a37fbdcbeeb829fe",
+  "active": "ad1517acb4a85797",
   "lastOpenFiles": [
-    "Ownership Model.md",
-    "005 Rust/General Rust notes.md",
-    "005 Rust/Creating a Guessing game in Rust.md",
-    "005 Rust/Entities and Components.md",
-    "005 Rust/Walking a Map.md",
-    "005 Rust/A More Interesting Map.md",
-    "005 Rust/Web Assembly.md",
-    "005 Rust/Getting Started with Rust - Hello World.md",
-    "005 Rust/Index.md",
+    "Field of View.md",
+    "005 Rust/005 2 RLTK/A More Interesting Map.md",
+    "005 Rust/005 2 RLTK/Errors Faced.md",
+    "005 Rust/005 2 RLTK/Entities and Components.md",
+    "005 Rust/005 1 Learning/General Rust notes.md",
+    "005 Rust/005 1 Learning/Ownership Model.md",
+    "005 Rust/005 2 RLTK/Walking a Map.md",
+    "005 Rust/005 2 RLTK/Getting Started with Rust - Hello World.md",
+    "005 Rust/005 2 RLTK/Index.md",
+    "005 Rust/005 2 RLTK",
+    "005 Rust/Untitled.canvas",
+    "005 Rust/005 2 RLTK/Web Assembly.md",
+    "005 Rust/005 1 Learning/Lifetimes.md",
+    "005 Rust/005 1 Learning",
+    "005 Rust/005 1 Learning/Creating a Guessing game in Rust.md",
     "000 Quick Notes/Commands.md",
-    "005 Rust/Errors Faced.md",
     "004 Habit Tracker/Steps.md",
     "003 Blog Ideas/Some Random Blog Ideas.md",
     "004 Habit Tracker/Extend functionality to log habits.md",
@@ -329,12 +292,10 @@
     "005 Rust",
     "Images/Pasted image 20250623172243.png",
     "002 Spring/Setting up a REST API.md",
-    "002 Spring/Index.md",
     "Images/Pasted image 20250609172756.png",
     "004 Habit Tracker",
     "003 Blog Ideas",
     "Images/Pasted image 20250609172038.png",
-    "002 Spring/Getting Started With Spring.md",
     "Images/Pasted image 20250608171504.png",
     "Images",
     "Images/Pasted image 20250608174753.png",
@@ -345,7 +306,6 @@
     "Pasted image 20250609140756.png",
     "000 Quick Notes/Untitled",
     "000 Quick Notes",
-    "002 Spring",
-    "001 Java Notes"
+    "002 Spring"
   ]
 }

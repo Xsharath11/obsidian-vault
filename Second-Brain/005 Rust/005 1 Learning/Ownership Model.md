@@ -177,7 +177,7 @@ fn main() {
 ```
 - The benefit due to this restriction is that it prevents any sort of race cases
 
-2.  We cannot have a mutable reference if an immutable reference already exists in the same scope
+2.  We cannot have a mutable reference if an immutable reference already exists in the same scope^13dc73
 ```rust
 fn main() {
 	let mut s: String = String::from("hello");
@@ -218,3 +218,10 @@ fn dangle() -> &String {
 - Here we are returning a reference to s
 - But s is dropped at the end of the function execution
 - This results in an error
+	- *This functions return type contains a borrowed value, but there is no value for it to be borrowed from*
+	- This leads into [[Lifetimes]]
+## Rules for References:
+1. At any given time, you can only have either one mutable reference or any number of immutable references
+2. References must always be valid
+
+# Slices

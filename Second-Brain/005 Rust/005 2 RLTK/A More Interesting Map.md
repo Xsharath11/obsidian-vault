@@ -121,3 +121,15 @@ pub fn new_map_rooms_and_corridors() -> Vec<TileType> {
 	map
 }
 ```
+
+#### Placing the player
+- Currently, the player is spawning in the center of the map which may not be a valid starting point
+- To move the player to the center of the first room, our generator will need to know where the rooms are so that we can put things in them
+- We need to modify `new_map_rooms_and_corridors` to return the rooms list as well by changing the return type and return statement to:
+	- `(Vec<Rect>, Vec<TileType>)`
+	- `(rooms, map)`
+- We can then do:
+	- `let (player_x, player_y) = rooms[0].center();`
+- Set the position of the player entity to above variables
+
+[[Field of View]]

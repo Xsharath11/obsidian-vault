@@ -25,6 +25,7 @@ help: use the `?` operator to extract the `Result<BTerm, std::boxed::Box<dyn std
 65   |     rltk::main_loop(context?, gs)
      |                            +
 ```
-2. [[Entities and Components#^0a680e]]
-3. [[Walking a Map#^42e5c1]] - Immutable borrow before mutable - Borrow Checker?
-4. Mod vs Pub
+2. [[Walking a Map#^42e5c1]] - *Done*
+	   [[Ownership Model#Rules for References]]
+	   [[Ownership Model#^13dc73]]
+3. Mod vs Pub
