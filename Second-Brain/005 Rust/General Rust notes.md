@@ -179,3 +179,5 @@ for val in arr.iter() {
 - Snake case for functions: 
 	- All undercase
 	- use underscore
+
+[[Ownership Model]]
