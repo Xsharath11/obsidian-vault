@@ -69,3 +69,56 @@ use visibility_system::VisibilitySystem;
 ```
 
 # Asking RLTK for  a viewshed: Trait Impl
+- To act as a bridge between our map implementation and our RLTK, we have a few traits that will help us
+- `map.rs`
+```rust
+impl Algorithm2D for Map {
+	fn dimensions(&self) -> Point {
+		Point::new(self.width, self.height)
+	}
+}
+```
+- This helps RLTK figure out a lot of other traits from the `dimensions` function: point indexing, bounds checking etc
+- We also need to support `BaseMap` 
+- `map.rs`
+```rust
+impl BaseMap for Map {
+	fn is_opaque(&self, idx:usize) -> bool {
+		self.tiles[idx as usize] == TileType::Wall
+	}
+}
+```
+- returns true if the tile is a wall, else false
+- Needs to be expanded once there are more types of tiles
+
+# Asking RLTK for  a viewshed: The system
+- Modifying the `visibility_system.rs`:
+```rust
+use specs::prelude::*;
+use super::{Viewshed, Position, Map};
+use rltk::{field_of_view, Point};
+
+pub struct VisibilitySystem {}
+
+impl<'a> System<'a> for VisibilitySystem {
+    type SystemData = ( ReadExpect<'a, Map>,
+                        WriteStorage<'a, Viewshed>, 
+                        WriteStorage<'a, Position>);
+
+    fn run(&mut self, data : Self::SystemData) {
+        let (map, mut viewshed, pos) = data;
+
+        for (viewshed,pos) in (&mut viewshed, &pos).join() {
+            viewshed.visible_tiles.clear();
+            viewshed.visible_tiles = field_of_view(Point::new(pos.x, pos.y), viewshed.range, &*map);
+            viewshed.visible_tiles.retain(|p| p.x >= 0 && p.x < map.width && p.y >= 0 && p.y < map.height );
+        }
+    }
+}
+```
+- We've added a `ReadExpect<'a, Map>` - meaning that the system should be passed our `Map` for use. We used `ReadExpect`, because not having a map is a failure.
+- In the loop, we first clear the list of visible tiles.
+- Then we call RLTK's `field_of_view` function, providing the starting point (the location of the entity, from `pos`), the range (from the viewshed), and a slightly convoluted "dereference, then get a reference" to unwrap `Map` from the ECS.
+- Finally we use the vector's `retain` method to delete any entries that _don't_ meet the criteria we specify. This is a _lambda_ or _closure_ - it iterates over the vector, passing `p` as a parameter. If p is inside the map boundaries, we keep it. This prevents other functions from trying to access a tile outside of the working map area.
+
+This will now run every frame (which is overkill, more on that later) - and store a list of visible tiles.
