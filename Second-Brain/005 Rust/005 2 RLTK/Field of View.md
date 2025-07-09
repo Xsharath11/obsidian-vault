@@ -172,5 +172,157 @@ pub fn draw_map(ecs: &World, ctx: &mut Rltk) {
                     x = 0;
   
 ```
-The above lets us see what the player can see alright
-Performance is bad
+- The above lets us see what the player can see alright
+- Performance is bad
+- We are basically just checking for every point if it falls within the visible_tiles for the player in the current state
+- There is no memory
+
+# Expanding map to include revealed tiles
+- To simulate map memory:
+	- Extend `Map` class to include a `revealed_tiles` struct
+	- It is just a `bool` for each tile in the map
+	- If true: we know what's there
+```rust
+#[derive(Default)]
+pub struct Map {
+	pub tiles: Vec<TileType>,
+	pub rooms: Vec<Rect>,
+	pub width: i32,
+	pub height: i32,
+	pub revealed_tiles: Vec<bool>
+}
+```
+- Due to this,  we also need to fill in the new type in the function that fills in the map: `new_rooms_and_corridors`:
+```rust
+let mut map =  Map {
+	tiles: vec![TileType::Wall; 80*50],
+	rooms: Vec::new(),
+	width: 80,
+	height: 50,
+	revealed_tiles: vec![false; 80*50]
+};
+```
+- change `draw_map` to look at this value rather than iterating the component each time
+```rust
+pub fn draw_map(ecs: &World, ctx: &mut Rltk) {
+    //let map = ecs.fetch::<Map>();
+    let map = ecs.fetch::<Map>();
+
+    let mut y = 0;
+    let mut x = 0;
+    for (idx, tile) in map.tiles.iter().enumerate() {
+        if map.revealed_tiles[idx] {
+            match tile {
+                TileType::Floor => {
+                    ctx.set(
+                        x,
+                        y,
+                        RGB::from_f32(0.5, 0.5, 0.5),
+                        RGB::from_f32(0., 0., 0.),
+                        rltk::to_cp437('.'),
+                    );
+                }
+                TileType::Wall => {
+                    ctx.set(
+                        x,
+                        y,
+                        RGB::from_f32(0.0, 1.0, 0.0),
+                        RGB::from_f32(0., 0., 0.),
+                        rltk::to_cp437('#'),
+                    );
+                }
+            }
+        }
+        x += 1;
+        if x > 79 {
+            x = 0;
+            y += 1;
+        }
+    }  
+}
+```
+- This renders a black screen since we are never updating the revealed_tiles
+- Extend the `VisibilitySystem`to update the tiles
+- Check to see if an entity is the player. If it is, update the maps revealed status
+```rust
+use super::{Map, Player, Position, Viewshed};
+use rltk::{field_of_view, Point};
+use specs::prelude::*;
+
+pub struct VisibilitySystem {}
+
+impl<'a> System<'a> for VisibilitySystem {
+    type SystemData = (
+        WriteExpect<'a, Map>,
+        Entities<'a>,
+        WriteStorage<'a, Viewshed>,
+        WriteStorage<'a, Position>,
+        ReadStorage<'a, Player>,
+    );
+    fn run(&mut self, data: Self::SystemData) {
+        let (mut map, entities, mut viewshed, pos, player) = data;
+        for (ent, viewshed, pos) in (&entities, &mut viewshed, &pos).join() {
+            viewshed.visible_tiles.clear();
+            viewshed.visible_tiles = field_of_view(Point::new(pos.x, pos.y), viewshed.range, &*map);
+            viewshed
+                .visible_tiles
+                .retain(|p| p.x >= 0 && p.x < map.width && p.y < map.height && p.y >= 0);
+            // If Player, reveal tiles
+            let p: Option<&Player> = player.get(ent);
+            if let Some(p) = p {
+                for vis in viewshed.visible_tiles.iter() {
+                    let idx = map.xy_idx(vis.x, vis.y);
+                    map.revealed_tiles[idx] = true
+                }
+            }
+        }
+    }
+}
+```
+- Getting entities list along with components
+- obtaining read only access to Players Storage
+- Iterate over them
+- `let p : Option<&Player> = player.get(ent);` to see if this is the player. The rather cryptic `if let Some(p) = p` runs only if there is a `Player` component. Then we calculate the index, and mark it revealed 
+
+At this stage, the game should be much quicker and it also remembers where the player has been
+# Speeding up even more - recalc visibility when needed
+- let us add a `dirty` flag to our `Viewshed` component
+```rust
+#[derive(Component)]
+pub struct Viewshed {
+	pub visibile_tiles: Vec<rltk::Point>,
+	pub range: i32,
+	pub dirty: bool
+}
+```
+- We need to init in `main.rs` to say that the viewshed is dirty
+```rust
+.with(Viewshed{ visible_tiles : Vec::new(), range: 8, dirty: true })
+```
+- The system can now be extended to check if the `dirty` flag is true and only recalc if it is true and set dirty flag to false after
+- in `try_move_player`:
+```rust
+pub fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
+    let mut positions = ecs.write_storage::<Position>();
+    let mut players = ecs.write_storage::<Player>();
+    let mut viewsheds = ecs.write_storage::<Viewshed>();
+    let map = ecs.fetch::<Map>();
+
+    for (_player, pos, viewshed) in (&mut players, &mut positions, &mut viewsheds).join() {
+        //pos.x = min(79, max(0, pos.x + delta_x));
+        //pos.y = min(49, max(0, pos.y + delta_y));
+        let destination_idx = map.xy_idx(pos.x + delta_x, pos.y + delta_y);
+        if map.tiles[destination_idx] != TileType::Wall {
+            pos.x = (pos.x + delta_x).clamp(0, 79);
+            pos.y = (pos.y + delta_y).clamp(0, 49);
+
+            viewshed.dirty = true;
+        }
+    }
+}
+```
+- This should be pretty familiar by now: we've added `viewsheds` to get write storage, and included it in the list of component types we are iterating. Then one call sets the flag to `true` after a move.
+
+The game now runs _very_ fast once more, if you type `cargo run`.
+
+# Greying out what we remember but cannot see:
