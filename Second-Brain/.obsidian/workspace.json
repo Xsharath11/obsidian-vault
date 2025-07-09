@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "000 Quick Notes/Commands.md",
+                "file": "005 Rust/005 2 RLTK/Field of View.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Commands"
+              "title": "Field of View"
             }
           },
           {
@@ -198,13 +198,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "000 Quick Notes/Commands.md",
+                "file": "005 Rust/005 2 RLTK/Field of View.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Commands"
+              "title": "Outline of Field of View"
             }
           }
         ],
@@ -260,7 +260,11 @@
   },
   "active": "ad1517acb4a85797",
   "lastOpenFiles": [
-    "Field of View.md",
+    "004 Habit Tracker/Django Rest API.md",
+    "004 Habit Tracker/Extend functionality to log habits.md",
+    "004 Habit Tracker/Streamlit UI.md",
+    "000 Quick Notes/Commands.md",
+    "005 Rust/005 2 RLTK/Field of View.md",
     "005 Rust/005 2 RLTK/A More Interesting Map.md",
     "005 Rust/005 2 RLTK/Errors Faced.md",
     "005 Rust/005 2 RLTK/Entities and Components.md",
@@ -275,17 +279,13 @@
     "005 Rust/005 1 Learning/Lifetimes.md",
     "005 Rust/005 1 Learning",
     "005 Rust/005 1 Learning/Creating a Guessing game in Rust.md",
-    "000 Quick Notes/Commands.md",
     "004 Habit Tracker/Steps.md",
     "003 Blog Ideas/Some Random Blog Ideas.md",
-    "004 Habit Tracker/Extend functionality to log habits.md",
-    "004 Habit Tracker/Streamlit UI.md",
     "004 Habit Tracker/Rough Notes.md",
     "004 Habit Tracker/Scope.md",
     "004 Habit Tracker/Additional Streamlit notes.md",
     "004 Habit Tracker/Basic Django backend.md",
     "004 Habit Tracker/Create a login page first.md",
-    "004 Habit Tracker/Django Rest API.md",
     "004 Habit Tracker/Serializers.md",
     "006 AWS/Issues with AWS.md",
     "006 AWS",

@@ -122,3 +122,55 @@ impl<'a> System<'a> for VisibilitySystem {
 - Finally we use the vector's `retain` method to delete any entries that _don't_ meet the criteria we specify. This is a _lambda_ or _closure_ - it iterates over the vector, passing `p` as a parameter. If p is inside the map boundaries, we keep it. This prevents other functions from trying to access a tile outside of the working map area.
 
 This will now run every frame (which is overkill, more on that later) - and store a list of visible tiles.
+
+# Rendering Visibility - Badly
+- change our `draw_map` function to retrieve the map and the viewshed:
+```rust
+use super::{Player, Rect, Viewshed, World};
+use rltk::{Algorithm2D, BaseMap, Point, RandomNumberGenerator, Rltk, RGB};
+use specs::{Join, WorldExt};
+
+pub fn draw_map(ecs: &World, ctx: &mut Rltk) {
+    //let map = ecs.fetch::<Map>();
+    let mut viewsheds = ecs.write_storage::<Viewshed>();
+    let mut players = ecs.write_storage::<Player>();
+    let map = ecs.fetch::<Map>();
+
+    for (_player, viewshed) in (&mut players, &mut viewsheds).join() {
+        let mut x = 0;
+        let mut y = 0;
+
+        for tile in map.tiles.iter() {
+            let mut y = 0;
+            let mut x = 0;
+            for tile in map.tiles.iter() {
+                let pt = Point::new(x, y);
+                if viewshed.visible_tiles.contains(&pt) {
+                    match tile {
+                        TileType::Floor => {
+                            ctx.set(
+                                x,
+                                y,
+                                RGB::from_f32(0.5, 0.5, 0.5),
+                                RGB::from_f32(0., 0., 0.),
+                                rltk::to_cp437('.'),
+                            );
+                        }
+                        TileType::Wall => {
+                            ctx.set(
+                                x,
+                                y,
+                                RGB::from_f32(0.0, 1.0, 0.0),
+                                RGB::from_f32(0., 0., 0.),
+                                rltk::to_cp437('#'),
+                            );
+                        }
+                    }
+                }
+                x += 1;
+                if x > 79 {
+                    x = 0;
+  
+```
+The above lets us see what the player can see alright
+Performance is bad
