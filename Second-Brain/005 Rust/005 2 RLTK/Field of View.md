@@ -326,3 +326,40 @@ pub fn try_move_player(delta_x: i32, delta_y: i32, ecs: &mut World) {
 The game now runs _very_ fast once more, if you type `cargo run`.
 
 # Greying out what we remember but cannot see:
+- The title is pretty self explanatory
+- This refers to areas we have already visited before but cannot currently see
+- We add a list of what tiles we can currently see to the `Map`:
+```rust
+#[derive(Default)]
+pub struct Map {
+	pub tiles ...
+	pub visible_tiles: Vec<bool>
+}
+```
+- Our creation method also needs to add all false to it
+```rust
+visible_tiles: vec![false; 80*50]
+```
+- Next, in our `VisiblitySystem`, we clear the list of visible tiles before we begin iterating and mark currently visible tiles as we find them
+```rust
+if viewshed.dirty {
+	viewshed.dirty = false;
+	viewshed.visible_tiles.clear();
+	viewshed.visible_tiles = field_of_view(Point::new(pos.x, pos.y), viewshed.range, &*map);
+	viewshed.visible_tiles.retain(|p| p.x >= 0 && p.x < map.width && p.y >=0 && p.y < map.height);
+
+	let _p: Option<&Player> = player.get(entity);
+	if let Some(_p) = _p{
+		for t in map.visible_tiles.iter_mut() {*t = false};
+		for vis in viewshed.visible_tiles.iter() {
+			let idx = map.xy_idx(vis.x, vis.y);
+			map.revealed_tiles[idx] = true;
+			map.visible_tiles[idx] = true;
+		}
+	}
+}
+```
+- Now we need to adjust the `draw_map` function to handle the revealed but not visible tiles:
+```rust
+
+```
