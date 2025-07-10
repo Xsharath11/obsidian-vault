@@ -50,6 +50,20 @@
             }
           },
           {
+            "id": "ae39683ba4c9e3b1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "005 Rust/005 2 RLTK/Monsters.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Monsters"
+            }
+          },
+          {
             "id": "6b7ff7be4492900b",
             "type": "leaf",
             "state": {
@@ -78,7 +92,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -198,13 +212,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "005 Rust/005 2 RLTK/Field of View.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Field of View"
+              "title": "Outline"
             }
           }
         ],
@@ -258,21 +271,22 @@
       "graph:Open graph view": false
     }
   },
-  "active": "ad1517acb4a85797",
+  "active": "cbbaa369cb9c1616",
   "lastOpenFiles": [
+    "005 Rust/005 2 RLTK/Monsters.md",
+    "005 Rust/005 2 RLTK/Field of View.md",
+    "005 Rust/005 2 RLTK/A More Interesting Map.md",
+    "005 Rust/005 2 RLTK/Index.md",
     "004 Habit Tracker/Django Rest API.md",
     "004 Habit Tracker/Extend functionality to log habits.md",
     "004 Habit Tracker/Streamlit UI.md",
     "000 Quick Notes/Commands.md",
-    "005 Rust/005 2 RLTK/Field of View.md",
-    "005 Rust/005 2 RLTK/A More Interesting Map.md",
     "005 Rust/005 2 RLTK/Errors Faced.md",
     "005 Rust/005 2 RLTK/Entities and Components.md",
     "005 Rust/005 1 Learning/General Rust notes.md",
     "005 Rust/005 1 Learning/Ownership Model.md",
     "005 Rust/005 2 RLTK/Walking a Map.md",
     "005 Rust/005 2 RLTK/Getting Started with Rust - Hello World.md",
-    "005 Rust/005 2 RLTK/Index.md",
     "005 Rust/005 2 RLTK",
     "005 Rust/Untitled.canvas",
     "005 Rust/005 2 RLTK/Web Assembly.md",
@@ -291,7 +305,6 @@
     "006 AWS",
     "005 Rust",
     "Images/Pasted image 20250623172243.png",
-    "002 Spring/Setting up a REST API.md",
     "Images/Pasted image 20250609172756.png",
     "004 Habit Tracker",
     "003 Blog Ideas",
